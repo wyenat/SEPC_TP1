@@ -17,7 +17,9 @@ unsigned long knuth_mmix_one_round(unsigned long in)
 
 void *mark_memarea_and_get_user_ptr(void *ptr, unsigned long size, MemKind k)
 {
-    /* ecrire votre code ici */
+    /* Écrit le marquage dans les 16 premiers et les 16 derniers octets du bloc pointé par ptr et
+     * d’une longueur de size octets. Elle renvoie l’adresse de la zone utilisable par l’utilisateur,
+     * 16 octets après ptr */
     return (void *)0;
 }
 
@@ -72,7 +74,7 @@ mem_realloc_medium() {
 unsigned int
 nb_TZL_entries() {
     int nb = 0;
-    
+
     for(int i=0; i < TZL_SIZE; i++)
 	if ( arena.TZL[i] )
 	    nb ++;

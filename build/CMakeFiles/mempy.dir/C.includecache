@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem.h
+
+/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/mempymodule.c
+python3.5m/Python.h
+-
+../src/mem.h
+/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem.h
+
