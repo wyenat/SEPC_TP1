@@ -1,10 +1,10 @@
-Start testing: Oct 08 16:20 CEST
+Start testing: Oct 09 15:36 CEST
 ----------------------------------------------------------
 1/1 Testing: AllTestsAllocator
 1/1 Test: AllTestsAllocator
 Command: "/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/build/alloctest"
 Directory: /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/build
-"AllTestsAllocator" start time: Oct 08 16:20 CEST
+"AllTestsAllocator" start time: Oct 09 15:36 CEST
 Output:
 ----------------------------------------------------------
 [==========] Running 12 tests from 4 test cases.
@@ -22,7 +22,7 @@ Expected: (pmem0) != ((void*)0), actual: NULL vs NULL
 [ RUN      ] Basic.onetinysmall
 /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:27: Failure
 Expected: (ptr) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
-[  FAILED  ] Basic.onetinysmall (1 ms)
+[  FAILED  ] Basic.onetinysmall (0 ms)
 [ RUN      ] Basic.onelargesmall
 /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:34: Failure
 Expected: (ptr) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
@@ -43,7 +43,7 @@ Expected: (t) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-
 /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:72: Failure
 Expected: (t) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
 [  FAILED  ] Basic.oneallocloopmedium (0 ms)
-[----------] 7 tests from Basic (1 ms total)
+[----------] 7 tests from Basic (0 ms total)
 
 [----------] 3 tests from Generic
 [ RUN      ] Generic.loopevenoddsmall
@@ -1115,8 +1115,8 @@ Une allocation de 4854 a echoue !
 Une allocation de 202 a echoue !
 Une allocation de 809 a echoue !
 Une allocation de 134 a echoue !
-[       OK ] Generic.aleatoire (2 ms)
-[----------] 3 tests from Generic (2 ms total)
+[       OK ] Generic.aleatoire (0 ms)
+[----------] 3 tests from Generic (0 ms total)
 
 [----------] 1 test from Medium
 [ RUN      ] Medium.buddy
@@ -1126,7 +1126,7 @@ Expected: (mref) != ((void*) 0), actual: NULL vs NULL
 [----------] 1 test from Medium (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 4 test cases ran. (3 ms total)
+[==========] 12 tests from 4 test cases ran. (1 ms total)
 [  PASSED  ] 2 tests.
 [  FAILED  ] 10 tests, listed below:
 [  FAILED  ] Mark.mmix
@@ -1142,11 +1142,11 @@ Expected: (mref) != ((void*) 0), actual: NULL vs NULL
 
 10 FAILED TESTS
 <end of output>
-Test time =   0.03 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Failed.
-"AllTestsAllocator" end time: Oct 08 16:20 CEST
+"AllTestsAllocator" end time: Oct 09 15:36 CEST
 "AllTestsAllocator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 08 16:20 CEST
+End testing: Oct 09 15:36 CEST

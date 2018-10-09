@@ -23,8 +23,7 @@ void *mark_memarea_and_get_user_ptr(void *ptr, unsigned long size, MemKind k)
     return (void *)0;
 }
 
-Alloc
-mark_check_and_get_alloc(void *ptr)
+Alloc mark_check_and_get_alloc(void *ptr)
 {
     /* ecrire votre code ici */
     Alloc a = {};
@@ -32,8 +31,7 @@ mark_check_and_get_alloc(void *ptr)
 }
 
 
-unsigned long
-mem_realloc_small() {
+unsigned long mem_realloc_small() {
     assert(arena.chunkpool == 0);
     unsigned long size = (FIRST_ALLOC_SMALL << arena.small_next_exponant);
     arena.chunkpool = mmap(0,
@@ -48,8 +46,7 @@ mem_realloc_small() {
     return size;
 }
 
-unsigned long
-mem_realloc_medium() {
+unsigned long mem_realloc_medium() {
     uint32_t indice = FIRST_ALLOC_MEDIUM_EXPOSANT + arena.medium_next_exponant;
     assert(arena.TZL[indice] == 0);
     unsigned long size = (FIRST_ALLOC_MEDIUM << arena.medium_next_exponant);
@@ -71,8 +68,7 @@ mem_realloc_medium() {
 
 
 // used for test in buddy algo
-unsigned int
-nb_TZL_entries() {
+unsigned int nb_TZL_entries() {
     int nb = 0;
 
     for(int i=0; i < TZL_SIZE; i++)
