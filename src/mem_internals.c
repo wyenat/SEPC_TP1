@@ -10,6 +10,8 @@
 #include <string.h>
 #include "mem.h"
 #include "mem_internals.h"
+#include <assert.h>
+
 
 unsigned long knuth_mmix_one_round(unsigned long in)
 {  /* Calcule le nombre magic */
@@ -40,6 +42,13 @@ Alloc mark_check_and_get_alloc(void *ptr)
     memcpy(&memkind, ptr-1, 1);
     memkind &= 00000011;
     MemKind k = memkind;
+    unsigned long valeur_magique = (knuth_mmix_one_round((unsigned long) (ptr-16)) & ~(0b11UL)) | k;
+    unsigned long actual_val1;
+    unsigned long actual_val2;
+    memcpy(&actual_val1, ptr-8, 8);
+    memcpy(&actual_val2, ptr+size+DELTA, 8);
+    assert(actual_val1 == valeur_magique);
+    assert(actual_val1 == actual_val2);
     Alloc a = {ptr, k, size};
     return a;
 }
