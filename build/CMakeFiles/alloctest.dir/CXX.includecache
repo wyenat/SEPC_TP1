@@ -14,12 +14,6 @@ stdio.h
 stdlib.h
 -
 
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/alloctest.cc
-gtest/gtest.h
--
-../src/mem.h
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem.h
-
 /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_buddy.cc
 gtest/gtest.h
 -

@@ -7,26 +7,40 @@
 #include <sys/mman.h>
 #include <assert.h>
 #include <stdint.h>
+#include <string.h>
 #include "mem.h"
 #include "mem_internals.h"
 
 unsigned long knuth_mmix_one_round(unsigned long in)
-{
+{  /* Calcule le nombre magic */
     return in * 6364136223846793005UL % 1442695040888963407UL;
 }
+
 
 void *mark_memarea_and_get_user_ptr(void *ptr, unsigned long size, MemKind k)
 {
     /* Écrit le marquage dans les 16 premiers et les 16 derniers octets du bloc pointé par ptr et
      * d’une longueur de size octets. Elle renvoie l’adresse de la zone utilisable par l’utilisateur,
      * 16 octets après ptr */
-    return (void *)0;
+    unsigned long magical_number = knuth_mmix_one_round((unsigned long) ptr);
+    magical_number &= ~(0b11UL);
+    magical_number |= k;
+    memcpy(ptr, &size, 8);
+    memcpy(ptr+8, &magical_number, 8);
+    memcpy(ptr+size+16+DELTA, &magical_number, 8);
+    memcpy(ptr+size+DELTA+24, &size, 8);
+    return ptr+16;
 }
 
 Alloc mark_check_and_get_alloc(void *ptr)
 {
-    /* ecrire votre code ici */
-    Alloc a = {};
+    unsigned long size;
+    memcpy(&size, ptr-16, 8);
+    uint8_t memkind;
+    memcpy(&memkind, ptr-1, 1);
+    memkind &= 00000011;
+    MemKind k = memkind;
+    Alloc a = {ptr, k, size};
     return a;
 }
 
