@@ -1,10 +1,10 @@
-Start testing: Oct 09 16:19 CEST
+Start testing: Oct 11 13:55 CEST
 ----------------------------------------------------------
 1/1 Testing: AllTestsAllocator
 1/1 Test: AllTestsAllocator
-Command: "/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/build/alloctest"
-Directory: /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/build
-"AllTestsAllocator" start time: Oct 09 16:19 CEST
+Command: "/user/2/matterv/TP/SEPC/SEPC_TP1/build/alloctest"
+Directory: /user/2/matterv/TP/SEPC/SEPC_TP1/build
+"AllTestsAllocator" start time: Oct 11 13:55 CEST
 Output:
 ----------------------------------------------------------
 [==========] Running 12 tests from 4 test cases.
@@ -13,35 +13,23 @@ Output:
 [ RUN      ] Mark.mmix
 /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_mark.cc:24: Failure
 Value of: knuth_mmix_one_round((unsigned long)tab) & ~(0b11UL)
-  Actual: 738109929096004388
+  Actual: 954760204483310464
 Expected: tab[2]
 Which is: 0
-[  FAILED  ] Mark.mmix (0 ms)
-[----------] 1 test from Mark (0 ms total)
+[  FAILED  ] Mark.mmix (1 ms)
+[----------] 1 test from Mark (1 ms total)
 
 [----------] 7 tests from Basic
 [ RUN      ] Basic.zero
 [       OK ] Basic.zero (0 ms)
 [ RUN      ] Basic.onetinysmall
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:27: Failure
-Expected: (ptr) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
-[  FAILED  ] Basic.onetinysmall (0 ms)
-[ RUN      ] Basic.onelargesmall
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:34: Failure
-Expected: (ptr) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
-[  FAILED  ] Basic.onelargesmall (0 ms)
-[ RUN      ] Basic.onemedium
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_generic.cc:41: Failure
-Expected: (ptr) != (nullptr), actual: NULL vs 8-byte object <00-00 00-00 00-00 00-00>
-[  FAILED  ] Basic.onemedium (0 ms)
-[ RUN      ] Basic.onelarge
-alloctest: /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem.c:54: efree: Assertion `0' failed.
+alloctest: /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem_internals.c:50: mark_check_and_get_alloc: Assertion `actual_val1 == valeur_magique' failed.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.03 sec
 ----------------------------------------------------------
 Test Failed.
-"AllTestsAllocator" end time: Oct 09 16:19 CEST
+"AllTestsAllocator" end time: Oct 11 13:55 CEST
 "AllTestsAllocator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 09 16:19 CEST
+End testing: Oct 11 13:55 CEST
