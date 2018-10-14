@@ -53,4 +53,10 @@ emalloc_small(unsigned long size)
 
 void efree_small(Alloc a) {
     /* ecrire votre code ici */
+    /* récup du pointeur chunk dans l'allocation a */
+    void* chunk = a.ptr;
+    /* chaînage du chunk à l'ancienne tête de liste qui devient son suiv */
+    chunk = arena.chunkpool;
+    /* MAJ du pointeur de arena.chunkpool : */
+    arena.chunkpool = chunk;
 }
