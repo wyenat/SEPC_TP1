@@ -22,17 +22,33 @@ unsigned int puiss2(unsigned long size) {
 }
 
 
-void * decoupe_recursive(unsigned long puissance2, unsigned long size) {
-  /* découpage récursif du bloc de taille 2^puissance2
-  * jusqu'à obtenir un bloc de taille 2^size (+ autres blocs)
+void * adresse_buddy(void* adresse_bloc, unsigned long taille_bloc) {
+  unsigned long adresse = ((unsigned long) adresse_bloc) ^ taille_bloc;
+  return (void*)adresse;
+}
+
+void * decoupe_recursive(void* adresse_debut_bloc, unsigned long indice_TZL_courant, unsigned long size) {
+  /* découpage récursif du bloc de taille 2^indice_TZL_courant
+  * jusqu'à obtenir un bloc de taille size (+ autres blocs)
   * ATTENTION : bien insérer tous les blocs finaux dans la TZL */
 
-  //TODO;
+  if ((1 << indice_TZL_courant) == size) {
+    arena.TZL[indice_TZL_courant] = adresse_buddy(adresse_debut_bloc, size); // insertion du buddy dans la TZL
+    return adresse_debut_bloc; // renvoie l'adresse du bloc, qui est de la bonne taille
+  }
+
+  if ((1 << indice_TZL_courant) > size) {
+    void* adr2 = adresse_buddy(adresse_debut_bloc, 1 << indice_TZL_courant);
+    arena.TZL[indice_TZL_courant] = adr2;
+    indice_TZL_courant--;
+    decoupe_recursive(adresse_debut_bloc, indice_TZL_courant, size);
+  }
+
 }
 
 
 void * decoupe_bloc_taille_superieure(unsigned long size) {
-  unsigned long puissance2 = ; // indice correspondant à la taille suivant size
+  unsigned int puissance2 = puiss2(size); // indice correspondant à la taille suivant size
   while (puissance2 < FIRST_ALLOC_MEDIUM_EXPOSANT + arena.medium_next_exponant
           && arena.TZL[puissance2] == NULL) {
   /* tant que pas de bloc dispo dans les tailles supérieures à la taille souhaitée */
@@ -43,8 +59,8 @@ void * decoupe_bloc_taille_superieure(unsigned long size) {
   }
   /* sinon, on a trouvé un bloc dispo de taille 2^puissance2
   * Il reste à le découper récursivt pour obtenir un bloc de taille size */
-  decoupe_recursive(puissance2, size);
-  //TODO
+  void* adresse_bloc_init = arena.TZL[puissance2];
+  decoupe_recursive(adresse_bloc_init, puissance2, size);
 }
 
 
@@ -55,14 +71,12 @@ emalloc_medium(unsigned long size)
     assert(size > SMALLALLOC);
     /* ecrire votre code ici */
     /* Calcul de l'indice de la TZL à sélectionner */
-    //TODO;
+    unsigned int indice = puiss2(size);
     /* voir si un bloc de la bonne taille est dispo :
     * on regarde TZL[i] : il pointe vers la tête de liste des blocs
     * de taille 2^i */
     if (arena.TZL[indice] == NULL) { /* si pas de bloc dispo */
-      //TODO;
       decoupe_bloc_taille_superieure(size);
-      return;
     }
     /* si bloc dispo : */
     void* bloc = arena.TZL[indice];

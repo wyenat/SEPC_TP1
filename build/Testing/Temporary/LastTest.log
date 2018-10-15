@@ -1,35 +1,19 @@
-Start testing: Oct 11 13:55 CEST
+Start testing: Oct 14 20:24 CEST
 ----------------------------------------------------------
+Unable to find executable: alloctest
 1/1 Testing: AllTestsAllocator
 1/1 Test: AllTestsAllocator
-Command: "/user/2/matterv/TP/SEPC/SEPC_TP1/build/alloctest"
-Directory: /user/2/matterv/TP/SEPC/SEPC_TP1/build
-"AllTestsAllocator" start time: Oct 11 13:55 CEST
+Command: ""
+Directory: /user/3/tulliezs/Documents/SEPC/Projet_malloc/build
+"AllTestsAllocator" start time: 
 Output:
 ----------------------------------------------------------
-[==========] Running 12 tests from 4 test cases.
-[----------] Global test environment set-up.
-[----------] 1 test from Mark
-[ RUN      ] Mark.mmix
-/user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/tests/test_mark.cc:24: Failure
-Value of: knuth_mmix_one_round((unsigned long)tab) & ~(0b11UL)
-  Actual: 954760204483310464
-Expected: tab[2]
-Which is: 0
-[  FAILED  ] Mark.mmix (1 ms)
-[----------] 1 test from Mark (1 ms total)
-
-[----------] 7 tests from Basic
-[ RUN      ] Basic.zero
-[       OK ] Basic.zero (0 ms)
-[ RUN      ] Basic.onetinysmall
-alloctest: /user/2/.base/matterv/home/TP/SEPC/SEPC_TP1/src/mem_internals.c:50: mark_check_and_get_alloc: Assertion `actual_val1 == valeur_magique' failed.
 <end of output>
-Test time =   0.03 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
-Test Failed.
-"AllTestsAllocator" end time: Oct 11 13:55 CEST
+Test Passed.
+"AllTestsAllocator" end time: Oct 14 20:24 CEST
 "AllTestsAllocator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 11 13:55 CEST
+End testing: Oct 14 20:24 CEST
